@@ -17,6 +17,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.anyOf
 import androidx.test.espresso.*
+import androidx.test.espresso.contrib.RecyclerViewActions
 
 
 import org.junit.Test
@@ -38,8 +39,8 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.oilex", appContext.packageName)
     }
-    @Rule
-    val activityScenarioRule = ActivityScenarioRule<TestActivity>(TestActivity::class.java)
+//    @Rule
+//    val activityScenarioRule = ActivityScenarioRule<TestActivity>(TestActivity::class.java)
 
     @Test
     fun clickButtonShowTextTest() {
@@ -67,9 +68,10 @@ class ExampleInstrumentedTest {
 
 //        onView(withId(R.id.button1_2)).perform(click())
 
-        onView(withId(R.id.textview1_2)).perform(pressBack())
+//        onView(withId(R.id.textview1)).perform(pressBack())
 
-//        onView(withId(R.id.recyclerview1)).perform(RecyclerViewActions)
+        onView(withId(R.id.recyclerview1)).perform(RecyclerViewActions.actionOnItemAtPosition<MyAdapter.ViewHolder>(29,
+            scrollTo()))
 
     }
 }
