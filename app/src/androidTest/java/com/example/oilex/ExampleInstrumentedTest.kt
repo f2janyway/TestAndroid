@@ -2,6 +2,7 @@ package com.example.oilex
 
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
+
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.PositionAssertions
@@ -10,15 +11,19 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.anyOf
+import androidx.test.espresso.*
+
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
+import org.junit.Rule
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -33,6 +38,8 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.oilex", appContext.packageName)
     }
+    @Rule
+    val activityScenarioRule = ActivityScenarioRule<TestActivity>(TestActivity::class.java)
 
     @Test
     fun clickButtonShowTextTest() {
@@ -56,11 +63,13 @@ class ExampleInstrumentedTest {
 
         onView(withId(R.id.edittext1)).check(isCompletelyAbove(withId(R.id.textview1)))
 
-        onView(withId(R.id.button2)).perform(click())
+//        onView(withId(R.id.button2)).perform(click())
 
 //        onView(withId(R.id.button1_2)).perform(click())
 
         onView(withId(R.id.textview1_2)).perform(pressBack())
+
+//        onView(withId(R.id.recyclerview1)).perform(RecyclerViewActions)
 
     }
 }
