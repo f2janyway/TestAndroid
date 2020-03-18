@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
 
     <TextView
         android:id="@+id/pos"
@@ -10,6 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/word"
+        android:layout_marginEnd="100dp"
         android:textAppearance="@android:style/TextAppearance.Large"
         />
 
@@ -20,13 +25,17 @@
         android:textAppearance="@android:style/TextAppearance.Large"
         app:layout_constraintStart_toEndOf="@id/pos"
         app:layout_constraintEnd_toStartOf="@+id/checkbox"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textIsSelectable="true"
+        android:clickable="true"
+        android:focusable="true" />
 
     <CheckBox
         android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
+
         app:layout_constraintStart_toEndOf="@+id/word"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
